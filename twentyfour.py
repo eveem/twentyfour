@@ -12,7 +12,7 @@ def add_bk (eq):
 	temp.append (eq[:0] + '(' + eq[:5] + ')' + eq[5:])
 	temp.append (eq[:2] + '(' + eq[2:] + ')')
 	temp.append ('(' + eq[0:3] + ')' + eq[3] + '(' + eq[4:] + ')')
-	print temp
+	# print temp
 	return temp
 
 def can_twentyfour ():
@@ -24,7 +24,11 @@ def can_twentyfour ():
 			equation = merging (nm, ot)
 			all_eq = add_bk (equation)
 			for eq in all_eq:
-				result = eval (eq)
+				try:
+					result = eval (eq)
+				except ZeroDivisionError:
+					result = 0
+				
 				if result == 24:
 					return True
 	return False
