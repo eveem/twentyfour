@@ -11,7 +11,11 @@ def can_twentyfour ():
 		for ot in all_opt:
 			equation = merging (nm, ot)
 			# print equation
-	return True
+			result = eval (equation)
+			# print result
+			if result == 24:
+				return True
+	return False
 
 def gen_permute_number ():
 	return list (itertools.permutations (arr))
@@ -37,14 +41,15 @@ def merging (num, opt):
 		else:
 			temp.append (opt[p])
 			p += 1
-	return temp
+	eq = ''.join (temp)	
+	return eq
 
 command = "WELCOME TO TWENTY-FOUR GAMES"
 
 while (command != "exit"):
 	arr = []
 	for i in xrange (4):
-		num = random.randrange (1, 9)
+		num = str (random.randrange (1, 9))
 		arr.append (num)
 	print arr,
 	if can_twentyfour ():
