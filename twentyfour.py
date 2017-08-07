@@ -3,6 +3,18 @@ import itertools
 
 operator = ['+', '-', '*', '/']
 
+def add_bk (eq):
+	temp = []
+	temp.append (eq)
+	temp.append (eq[:0] + '(' + eq[:3] + ')' + eq[3:])
+	temp.append (eq[:2] + '(' + eq[2:5] + ')' + eq[5:])
+	temp.append (eq[:4] + '(' + eq[4:] + ')')
+	temp.append (eq[:0] + '(' + eq[:5] + ')' + eq[5:])
+	temp.append (eq[:2] + '(' + eq[2:] + ')')
+	temp.append ('(' + eq[0:3] + ')' + eq[3] + '(' + eq[4:] + ')')
+	print temp
+	return temp
+
 def can_twentyfour ():
 	print ':',
 	all_num = gen_permute_number ()
@@ -10,11 +22,11 @@ def can_twentyfour ():
 	for nm in all_num:
 		for ot in all_opt:
 			equation = merging (nm, ot)
-			# print equation
-			result = eval (equation)
-			# print result
-			if result == 24:
-				return True
+			all_eq = add_bk (equation)
+			for eq in all_eq:
+				result = eval (eq)
+				if result == 24:
+					return True
 	return False
 
 def gen_permute_number ():
@@ -52,9 +64,9 @@ while (command != "exit"):
 		num = str (random.randrange (1, 9))
 		arr.append (num)
 	print arr,
+	
+	raw_input ()
 	if can_twentyfour ():
-		print '/',
+		print '/'
 	else:
-		print 'X',
-
-	command = raw_input ()
+		print 'X'
