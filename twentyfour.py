@@ -30,6 +30,7 @@ def can_twentyfour ():
 					result = 0
 				
 				if result == 24:
+					# print eq
 					return True
 	return False
 
@@ -67,6 +68,10 @@ while (command != "exit"):
 	for i in xrange (4):
 		num = str (random.randrange (1, 9))
 		arr.append (num)
+	# arr.append ('3')
+	# arr.append ('4')
+	# arr.append ('8')
+	# arr.append ('7')
 	print arr,
 	
 	raw_input ()
