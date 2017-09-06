@@ -30,7 +30,7 @@ def can_twentyfour ():
 					result = 0
 				
 				if result == 24.00:
-					print eq
+					# print eq
 					return True
 	return False
 
