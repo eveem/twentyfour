@@ -1,3 +1,4 @@
+import math
 import random
 import itertools
 
@@ -6,13 +7,12 @@ operator = ['+', '-', '*', '/']
 def add_bk (eq):
 	temp = []
 	temp.append (eq)
-	temp.append (eq[:0] + '(' + eq[:3] + ')' + eq[3:])
-	temp.append (eq[:2] + '(' + eq[2:5] + ')' + eq[5:])
+	temp.append ('(' + eq[:7] + ')' + eq[7:])
+	temp.append (eq[:4] + '(' + eq[4:11] + ')' + eq[11:])
+	temp.append (eq[:8] + '(' + eq[8:] + ')')
+	temp.append ('(' + eq[:11] + ')' + eq[11:])
 	temp.append (eq[:4] + '(' + eq[4:] + ')')
-	temp.append (eq[:0] + '(' + eq[:5] + ')' + eq[5:])
-	temp.append (eq[:2] + '(' + eq[2:] + ')')
-	temp.append ('(' + eq[0:3] + ')' + eq[3] + '(' + eq[4:] + ')')
-	# print temp
+	temp.append ('(' + eq[:7] + ')' + eq[7] + '(' + eq[8:] + ')')
 	return temp
 
 def can_twentyfour ():
@@ -29,8 +29,8 @@ def can_twentyfour ():
 				except ZeroDivisionError:
 					result = 0
 				
-				if result == 24:
-					# print eq
+				if result == 24.00:
+					print eq
 					return True
 	return False
 
@@ -66,12 +66,13 @@ command = "WELCOME TO TWENTY-FOUR GAMES"
 while (command != "exit"):
 	arr = []
 	for i in xrange (4):
-		num = str (random.randrange (1, 9))
+		tmp = random.uniform (1, 9)
+		num = str (math.ceil(tmp))
 		arr.append (num)
-	# arr.append ('3')
-	# arr.append ('4')
-	# arr.append ('8')
-	# arr.append ('7')
+	# arr.append ('7.0')
+	# arr.append ('5.0')
+	# arr.append ('3.0')
+	# arr.append ('3.0')
 	print arr,
 	
 	raw_input ()
