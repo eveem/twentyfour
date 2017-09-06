@@ -69,10 +69,6 @@ while (command != "exit"):
 		tmp = random.uniform (1, 9)
 		num = str (math.ceil(tmp))
 		arr.append (num)
-	# arr.append ('7.0')
-	# arr.append ('5.0')
-	# arr.append ('3.0')
-	# arr.append ('3.0')
 	print arr,
 	
 	raw_input ()
