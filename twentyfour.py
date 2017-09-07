@@ -61,6 +61,12 @@ def merging (num, opt):
 	eq = ''.join (temp)	
 	return eq
 
+def show_num (arr):
+	arr_show = []
+	for i in arr:
+		arr_show.append (int(i[0]))
+	print arr_show,
+
 command = "WELCOME TO TWENTY-FOUR GAMES"
 
 while (command != "exit"):
@@ -69,7 +75,8 @@ while (command != "exit"):
 		tmp = random.uniform (1, 9)
 		num = str (math.ceil(tmp))
 		arr.append (num)
-	print arr,
+	show_num (arr)
+	
 	
 	raw_input ()
 	if can_twentyfour ():
